@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>ToDo List</title>
+</head>
+<body>
+    <div class="todo-content">
+  <h2 style="text-align:center">ToDo List</h2>
+  <div class="todo-input">
+    <input type="text" Placeholder="entrez une nouvelle tache">
+    <button class="add-todo">Ajouter</button>
+  </div>
+  
+<div class="error"></div>
+    <ul id="task-list">
+        <li>
+            <span class="task-text">Tâche 1</span>
+            <button class="edit-button"><img src="assets/bouton-modifier.png" alt="Modifier une tâche" width="20px"></button>
+            <button class="delete-button">Supprimer</button>
+            <button id="shareButton" onclick="partagerLien()"><img src="assets/partager.png" alt="Partager une tâche" width="20px"></button>
+        </li>
+  </ul>
+</div>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

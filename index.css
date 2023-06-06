@@ -106,3 +106,13 @@ align-items: center;
 .todo-content .todo-list .list-row:hover .update-todo{
   visibility:visible;
 }
+
+.task-text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.edit-button,
+.delete-button {
+  margin-left: 10px;
+}

@@ -25,4 +25,18 @@ function partagerLien() {
         prompt('Copiez le lien:', url);
     }
   }
+
+  var taskList = []; 
+
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+  
+    var taskName = document.getElementById('taskName').value;
+    var dueDate = document.getElementById('dueDate').value;
+  
+    taskList.push({ taskName: taskName, dueDate: dueDate });
+  
+    document.getElementById('taskName').value = '';
+    document.getElementById('dueDate').value = '';
+  });
   

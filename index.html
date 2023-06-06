@@ -36,25 +36,42 @@
       
 
     </div>
-    <div class="todo-list" style="display:flex;justify-content:space-between"> 
-        <span>tache 2</span>
-        <label for="a faire">a faire</label>
-        <input type="checkbox" name="a faire"id="scales" name="scales">
-       
-        <label for="a faire">en cours</label>
-        <input type="checkbox" id="scales" name="scales">
-       
-        <label for="a faire">test</label>
-        <input type="checkbox" id="scales" name="scales">
+
+
+    <div class="todo-list" style="display:flex;justify-content:space-between">
+  <span>tache 2</span>
   
+  <label for="a faire">À faire</label>
+  <input type="checkbox" name="a-faire" id="checkbox-a-faire">
 
-        <label for="a faire">terminer</label>
-        <input type="checkbox" id="scales" name="scales">
-        <button>❌</button>
-        <button>⚙️</button>
+  <label for="en cours">En cours</label>
+  <input type="checkbox" name="en-cours" id="checkbox-en-cours">
+
+  <label for="test">Test</label>
+  <input type="checkbox" name="test" id="checkbox-test">
+
+  <label for="terminer">Terminé</label>
+  <input type="checkbox" name="terminer" id="checkbox-terminer">
+  
+  <button>❌</button>
+  <button>⚙️</button>
+</div>
+
+<script>
+  const checkboxTerminer = document.getElementById('checkbox-terminer');
+
+  checkboxTerminer.addEventListener('change', function() {
+    if (checkboxTerminer.checked) {
+    
+      checkboxTerminer.parentElement.style.backgroundColor = 'green';
+    } else {
       
+      checkboxTerminer.parentElement.style.backgroundColor = 'transparent';
+    }
+  });
+</script>
 
-    </div>
+
 </div>
 </body>
 </html>

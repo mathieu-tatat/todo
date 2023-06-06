@@ -10,3 +10,19 @@ editButtons.forEach((button) => {
     }
   });
 });
+
+
+function partagerLien() {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        url: url
+      })
+        .then(() => console.log('Lien partagé avec succès.'))
+        .catch((error) => console.error('Erreur lors du partage du lien:', error));
+    } else {
+        console.log('La fonction de partage n\'est pas prise en charge par ce navigateur.');
+        prompt('Copiez le lien:', url);
+    }
+  }
+  

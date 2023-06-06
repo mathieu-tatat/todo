@@ -6,12 +6,13 @@
 <link rel="stylesheet" href="index.css" type="text/css">
 </head>
 <body>
+<section></section>
 <!--===first todo list ====-->
 <div class="todo-content">
 <h2 style="text-align:center">TO DO List</h2>
 <div class="todo-input">
 <input type="text" Placeholder="Enter Something Here..">
-<button class="add-todo">Ajoutez</button>
+<button class="add-todo">Ajouter</button>
 </div>
 <div class="error"></div>
 <div class="todo-list">

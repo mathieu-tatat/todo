@@ -17,23 +17,23 @@ $(document).on('click', '.add-todo', function() {
         <div class="list-num">` + i + `.</div>
         <div class="list-data">` + todoInputData + `</div>
         <div class="check">
-          <label for="a faire">a faire</label>
+          <label for="a faire"à faire</label>
           <input type="checkbox" name="a faire" id="scales" name="scales">
         </div>
         <div class="check">
-          <label for="a faire">en cours</label>
+          <label for="en cours">en cours</label>
           <input type="checkbox" id="scales" name="scales">
         </div>
         <div class="check">
-          <label for="a faire">test</label>
+          <label for="test">en test</label>
           <input type="checkbox" id="scales" name="scales">
         </div>
         <div class="check">
-          <label for="a faire">terminer</label>
+          <label for="terminer">terminer</label>
           <input type="checkbox" id="scales" name="scales">
         </div>
-        <div class="edit-todo">&#9998;</div>
-        <div class="remove-todo">&#x2715;</div>
+        <div class="edit-todo">⚙️</div>
+        <div class="remove-todo">❌</div>
       </div>
       <div class="list-error"></div>
     </div>`;
@@ -49,7 +49,12 @@ $(document).on('click', '.add-todo', function() {
 
   // Mise à jour du stockage local après l'ajout d'un élément
   localStorage.setItem('todoList', $('.todo-list').html());
+  
 });
+
+
+//localStorage.clear();
+
 
 // add todo list on pressing Enter key 
 $(document).keydown(function(event) {
@@ -59,3 +64,9 @@ $(document).keydown(function(event) {
   }
 });
    
+// const myArray = [
+//   {
+//     title: "myTitle",
+//     description: "myDescription"
+//   },
+// ]

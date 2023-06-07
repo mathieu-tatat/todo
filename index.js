@@ -1,84 +1,114 @@
-var i = 1;
+const input = document.querySelector('.todo-input input');
+const addTodoButton = document.querySelector('.add-todo');
 
-// Récupération de la liste depuis le stockage local lors du chargement de la page
-$(document).ready(function() {
-  var storedList = localStorage.getItem('todoList');
-  if (storedList) {
-    $('.todo-list').html(storedList);
-    i = $('.list-row').length + 1;
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    addTodo();
   }
 });
 
-$(document).on('click', '.add-todo', function() {
-  var todoInputData = $(this).siblings('input').val();
-  var todoListData =
-    `<div class="row-parent">
-      <div class="list-row">
-        <div class="list-num">` + i + `.</div>
-        <div class="list-data">` + todoInputData + `</div>
-        <div class="check">
-          <label for="a faire"à faire</label>
-          <input type="checkbox" name="a faire" id="scales" name="scales">
-        </div>
-        <div class="check">
-          <label for="en cours">en cours</label>
-          <input type="checkbox" id="scales" name="scales">
-        </div>
-        <div class="check">
-          <label for="test">en test</label>
-          <input type="checkbox" id="scales" name="scales">
-        </div>
-        <div class="check">
-          <label for="terminer">terminer</label>
-          <input type="checkbox" id="scales" name="scales">
-        </div>
-        <div class="edit-todo">⚙️</div>
-        <div class="remove-todo">❌</div>
-      </div>
-      <div class="list-error"></div>
-    </div>`;
+addTodoButton.addEventListener('click', addTodo);
 
-  if ($.trim(todoInputData) == '') {
-    $(this).parents('.todo-content').find('.error').text('You must enter something!');
-  } else {
-    $(this).parents('.todo-content').find('.todo-list').append(todoListData);
+let i = 0;
+function addTodo() {
+  const taskText = input.value.trim();
+
+  if (taskText !== '') {
+    const taskList = document.getElementById('task-list');
+    const newTask = document.createElement('li');
+    const taskSpan = document.createElement('span');
+    taskSpan.textContent = taskText;
+    const editButton = document.createElement('button');
+    const editImage = document.createElement('img');
+    editImage.src = 'assets/bouton-modifier.png';
+    editImage.alt = 'Modifier une tâche';
+    editImage.width = '20';
+    editButton.classList.add('edit-button' + i);
+    editButton.appendChild(editImage);
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Supprimer';
+    deleteButton.classList.add('delete-button');
+    
+
+    newTask.appendChild(taskSpan);
+    newTask.appendChild(editButton);
+    newTask.appendChild(deleteButton);
+    taskList.appendChild(newTask);
+    
+    let edit = document.querySelector('.edit-button'+i);
+      edit.addEventListener('click', e => {
+        const taskText = edit.previousElementSibling.textContent;
+        const newTaskText = prompt('Modifier la tâche :', taskText);
+        if (newTaskText !== null && newTaskText !== '') {
+          edit.previousElementSibling.textContent = newTaskText;
+        }
+    })
     i++;
-    $(this).parents('.todo-content').find('.error').empty();
-  }
-  $(this).siblings('input').val('');
+  }   
+}
 
-  // Mise à jour du stockage local après l'ajout d'un élément
-  localStorage.setItem('todoList', $('.todo-list').html());
-  
-});
+// const input = document.querySelector('.todo-input input');
+// const addTodoButton = document.querySelector('.add-todo');
+// const taskList = document.getElementById('task-list');
 
+// input.addEventListener('keydown', (event) => {
+//   if (event.key === 'Enter') {
+//     addTodo();
+//   }
+// });
 
-//localStorage.clear();
+// addTodoButton.addEventListener('click', addTodo);
 
+// let i = 0;
 
-// add todo list on pressing Enter key 
-$(document).keydown(function(event) {
-  if (event.which == 13) {
-    event.preventDefault();
-    $('.add-todo').click();
-  }
-});
-   
-// const myArray = [
-//   {
-//     title: "myTitle",
-//     description: "myDescription"
-//   },
-// ]
-const editButtons = document.querySelectorAll('.edit-button');
+// function addTodo() {
+//   const taskText = input.value.trim();
 
-editButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const taskText = button.previousElementSibling.textContent;
-    const newTaskText = prompt('Modifier la tâche :', taskText);
+//   if (taskText !== '') {
+//     const newTask = document.createElement('li');
+//     const taskSpan = document.createElement('span');
+//     taskSpan.textContent = taskText;
+//     const editButton = document.createElement('button');
+//     const editImage = document.createElement('img');
+//     editImage.src = 'assets/bouton-modifier.png';
+//     editImage.alt = 'Modifier une tâche';
+//     editImage.width = '20';
+//     editButton.classList.add('edit-button' + i);
+//     editButton.appendChild(editImage);
+//     const deleteButton = document.createElement('button');
+//     deleteButton.textContent = 'Supprimer';
+//     deleteButton.classList.add('delete-button');
 
-    if (newTaskText !== null && newTaskText !== '') {
-      button.previousElementSibling.textContent = newTaskText;
-    }
-  });
-});
+//     newTask.appendChild(taskSpan);
+//     newTask.appendChild(editButton);
+//     newTask.appendChild(deleteButton);
+//     taskList.appendChild(newTask);
+
+//     let edit = document.querySelector('.edit-button' + i);
+//     edit.addEventListener('click', e => {
+//       const taskText = edit.previousElementSibling.textContent;
+//       const newTaskText = prompt('Modifier la tâche :', taskText);
+//       if (newTaskText !== null && newTaskText !== '') {
+//         edit.previousElementSibling.textContent = newTaskText;
+//       }
+//     });
+
+//     i++;
+    
+//     // Mettre à jour le localStorage
+//     LocalStorage();
+//   }
+// }
+
+// function LocalStorage() {
+//   const tasks = taskList.innerHTML;
+//   localStorage.setItem('tasks', tasks);
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const storedTasks = localStorage.getItem('tasks');
+
+//   if (storedTasks) {
+//     taskList.innerHTML = storedTasks;
+//   }
+// }); // localStorage.clear();

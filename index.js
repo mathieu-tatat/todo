@@ -18,6 +18,7 @@ function addTodo() {
     const newTask = document.createElement('li');
     const taskSpan = document.createElement('span');
     taskSpan.textContent = taskText;
+
     const editButton = document.createElement('button');
     const editImage = document.createElement('img');
     editImage.src = 'assets/bouton-modifier.png';
@@ -25,9 +26,15 @@ function addTodo() {
     editImage.width = '20';
     editButton.classList.add('edit-button');
     editButton.appendChild(editImage);
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Supprimer';
     deleteButton.classList.add('delete-button');
+
+    const checkboxTerminer = document.createElement('input');
+    checkboxTerminer.classList.add('checkbox-terminer'+i);
+    checkboxTerminer.type='checkbox';
+  
     const shareButton = document.createElement('button');
     const shareImage = document.createElement('img');
     shareImage.src = 'assets/partager.png';
@@ -39,8 +46,24 @@ function addTodo() {
     newTask.appendChild(taskSpan);
     newTask.appendChild(editButton);
     newTask.appendChild(deleteButton);
+    newTask.appendChild(checkboxTerminer);
     newTask.appendChild(shareButton);
     taskList.appendChild(newTask);
+  
+    
+   
+
+  const checkTerminer = document.querySelector('.checkbox-terminer'+i);
+
+    checkTerminer.addEventListener('change', function() {
+      if (checkTerminer.checked) {
+      
+        checkTerminer.parentElement.style.backgroundColor = 'green';
+      } else {
+        
+        checkTerminer.parentElement.style.backgroundColor = 'transparent';
+      }
+    });
 
     editButton.addEventListener('click', () => {
       const taskText = taskSpan.textContent;
@@ -49,8 +72,6 @@ function addTodo() {
         taskSpan.textContent = newTaskText;
       }
     });
-
-    i++;
 
     if (navigator.share) {
       shareButton.addEventListener('click', async () => {
@@ -67,9 +88,28 @@ function addTodo() {
       });
     } else {
       console.log("L'API de partage n'est pas prise en charge par ce navigateur.");
-    }
+    } 
+
+  i++;
+
   }
-}
+  let edit = document.querySelector('.edit-button'+i);
+  edit.addEventListener('click', e => {
+    const taskText = edit.previousElementSibling.textContent;
+    const newTaskText = prompt('Modifier la tâche :', taskText);
+    if (newTaskText !== null && newTaskText !== '') {
+      edit.previousElementSibling.textContent = newTaskText;
+    }
+})
+} 
+
+
+   
+
+
+
+
+    
 
 // const input = document.querySelector('.todo-input input');
 // const addTodoButton = document.querySelector('.add-todo');

@@ -5,73 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <script type="text/javascript" src="index.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="todo-content">
-  <h2 style="text-align:center">TO DO List</h2>
-  <div class="todo-input">
-    <input type="text" Placeholder="entrez une nouvelle tache">
-    <button class="add-todo">Ajouter</button>
-  </div>
-  
-<div class="error"></div>
-    <div class="todo-list" style="display:flex;justify-content:space-between"> 
-        <span>tache 1</span>
-        <label for="a faire">a faire</label>
-        <input type="checkbox" name="a faire"id="scales" name="scales">
-       
-        <label for="a faire">en cours</label>
-        <input type="checkbox" id="scales" name="scales">
-       
-        <label for="a faire">test</label>
-        <input type="checkbox" id="scales" name="scales">
-  
+      <h2 style="text-align:center">TO DO List</h2>
+      <div class="todo-input">
+        <input type="text" Placeholder="entrez une nouvelle tache">
+        <button class="add-todo">Ajouter</button>
+      </div>
+      <div class="error"></div>
+      <ul id="task-list">   
+      </ul>
 
-        <label for="a faire">terminer</label>
-        <input type="checkbox" id="scales" name="scales">
-        <button>❌</button>
-        <button>⚙️</button>
-      
 
+        <!-- <label for="a faire">terminer</label>
+         <input type="checkbox" id="checkbox-terminer" name="scales">  -->
+    
     </div>
 
 
-    <div class="todo-list" style="display:flex;justify-content:space-between">
-  <span>tache 2</span>
-  
-  <label for="a faire">À faire</label>
-  <input type="checkbox" name="a-faire" id="checkbox-a-faire">
-
-  <label for="en cours">En cours</label>
-  <input type="checkbox" name="en-cours" id="checkbox-en-cours">
-
-  <label for="test">Test</label>
-  <input type="checkbox" name="test" id="checkbox-test">
-
-  <label for="terminer">Terminé</label>
-  <input type="checkbox" name="terminer" id="checkbox-terminer">
-  
-  <button>❌</button>
-  <button>⚙️</button>
-</div>
-
-<script>
-  const checkboxTerminer = document.getElementById('checkbox-terminer');
-
-  checkboxTerminer.addEventListener('change', function() {
-    if (checkboxTerminer.checked) {
-    
-      checkboxTerminer.parentElement.style.backgroundColor = 'green';
-    } else {
-      
-      checkboxTerminer.parentElement.style.backgroundColor = 'transparent';
-    }
-  });
-</script>
 
 
-</div>
+
+
+
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

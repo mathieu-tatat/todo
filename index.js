@@ -1,3 +1,4 @@
+
 const input = document.querySelector('.todo-input input');
 const addTodoButton = document.querySelector('.add-todo');
 
@@ -25,9 +26,6 @@ function addTodo() {
     editImage.width = '20';
     editButton.classList.add('edit-button');
     editButton.appendChild(editImage);
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Supprimer';
-    deleteButton.classList.add('delete-button');
     const shareButton = document.createElement('button');
     const shareImage = document.createElement('img');
     shareImage.src = 'assets/partager.png';
@@ -35,11 +33,19 @@ function addTodo() {
     shareImage.width = '20';
     shareButton.classList.add('share-button');
     shareButton.appendChild(shareImage);
+    const deleteButton = document.createElement('button');
+    const deleteImage = document.createElement('img');
+    deleteImage.src = 'assets/supprimer.png';
+    deleteImage.alt = 'Supprimer';
+    deleteImage.width = '20';
+    deleteButton.classList.add('delete-button');
+    deleteButton.appendChild(deleteImage);
+
 
     newTask.appendChild(taskSpan);
     newTask.appendChild(editButton);
-    newTask.appendChild(deleteButton);
     newTask.appendChild(shareButton);
+    newTask.appendChild(deleteButton);
     taskList.appendChild(newTask);
 
     editButton.addEventListener('click', () => {
